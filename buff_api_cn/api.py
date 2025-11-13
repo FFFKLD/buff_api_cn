@@ -79,3 +79,10 @@ class BuffApiCn:
         )
 
         return SpecificItem(**result.data["data"])
+
+    def search_item(self, text: str, page_num: int = 1) -> List[Item]:
+        result = self._rest_adapter.get(
+            endpoint=f"/market/search/suggest?game=csgo&text={text}&page_num={page_num}"
+        )
+        market = [Item(**item) for item in result.data["data"]["items"]]
+        return market

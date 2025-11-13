@@ -51,7 +51,11 @@ class RestAdapter:
             Result: status_code, message, data
         """
         full_url = self.url + endpoint
-        headers = {"Cookie": self._session_cookie}
+        headers = {
+            "Cookie": self._session_cookie,
+            "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-TW;q=0.6",
+            "Referer": "https://buff.163.com/market/csgo"
+        }
 
         log_line_pre = f"method={http_method}, url={full_url}, params={ep_params}"
         log_line_post = ", ".join(
