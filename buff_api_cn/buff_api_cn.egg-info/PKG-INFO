@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: buff_api_cn
+Version: 1.0.0
+Summary: An unofficial Python API wrapper for Buff163, with Chinese language support.
+Home-page: https://github.com/your_github/buff_api_cn
+Author: Cline (based on work by markzhdan)
+Author-email: 
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Buff API CN
+
+An unofficial Python API wrapper for Buff163, with Chinese language support.
+
+This is a fork/modification of the original [buff163-unofficial-api](https://github.com/markzhdan/buff163-unofficial-api) by markzhdan.
+
+## Key Changes
+- Added `lang=zh-CN` to API requests to fetch data in Chinese.
+- Renamed the main class to `BuffApiCn`.
+
+## Installation
+
+You can install this package from your GitHub repository:
+```sh
+pip install git+https://github.com/your_github/buff_api_cn.git
+```
+
+## Usage
+
+```python
+from buff_api_cn import BuffApiCn
+
+# Example cookie format
+cookie = "your_full_cookie_string"
+
+buff_api = BuffApiCn(session_cookie=cookie)
+
+market = buff_api.get_featured_market()
+
+for item in market:
+    print(f"{item.market_hash_name}")
+    print(f"¥ {item.sell_min_price}\n")
